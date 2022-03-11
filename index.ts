@@ -21,17 +21,14 @@ const client = new KintoneRestAPIClient({
   // Use session authentication if `auth` is omitted (in browser only)
 });
 
-client.record.getAllRecords({
+/* client.record.getAllRecords({
   app: 183
 }).then(res => console.log('allRecords', res));
 
 console.log('KINTONE_API_TOKEN', process.env.KINTONE_API_TOKEN);
+ */
 
 
-client.record.addRecord({
-  app: 183,
-  record: {fullname: {value:'Hello'}}
-})
 
 // Body parsing Middleware
 app.use(express.json());
@@ -51,6 +48,12 @@ app.get(
 app.post(
   "/cocoEnquete",
   async (req: Request, res: Response): Promise<Response> => {
+      //データの受信処理
+      client.record.addRecord({
+        app: 183,
+        record: req.body.jsonForm
+      })
+      console.log('req.body.jsonForm', req.body.jsonForm);
 
       return res.status(200).send({
           message: "Hello cocoEnquete World!" + JSON.stringify(req.body) ,
