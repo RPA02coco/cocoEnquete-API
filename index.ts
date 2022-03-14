@@ -32,7 +32,7 @@ console.log('KINTONE_API_TOKEN', process.env.KINTONE_API_TOKEN);
 
 // Body parsing Middleware
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 
 app.use(cors())
 
@@ -48,6 +48,7 @@ app.get(
 app.post(
   "/",
   async (req: Request, res: Response): Promise<Response> => {
+      console.log('サーバpost');
       //データの受信処理
       client.record.addRecord({
         app: 183,
