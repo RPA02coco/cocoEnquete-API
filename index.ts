@@ -38,8 +38,8 @@ app.use(cors())
 
 app.get(
     "/",
-    async (req: Request, res: Response): Promise<Response> => {
-        return res.status(200).send({
+    async (req: Request, res: Response) => {
+        res.status(200).send({
             message: "Hello World!",
         });
     }
