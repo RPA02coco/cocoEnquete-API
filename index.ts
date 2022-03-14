@@ -4,7 +4,7 @@ import cors from 'cors';
 import { KintoneRestAPIClient } from "@kintone/rest-api-client";
 
 const app: Application = express();
-const port = 3001;
+const port = 3010;
 
 const client = new KintoneRestAPIClient({
   baseUrl: "https://rdmuhwtt6gx7.cybozu.com",
