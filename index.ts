@@ -46,7 +46,7 @@ app.get(
 );
 
 app.post(
-  "/cocoEnquete",
+  "/",
   async (req: Request, res: Response): Promise<Response> => {
       //データの受信処理
       client.record.addRecord({
