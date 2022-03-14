@@ -39,14 +39,15 @@ console.log('KINTONE_API_TOKEN', process.env.KINTONE_API_TOKEN);
  */
 // Body parsing Middleware
 app.use(express_1.default.json());
-app.use(express_1.default.urlencoded({ extended: true }));
+app.use(express_1.default.urlencoded({ extended: false }));
 app.use((0, cors_1.default)());
 app.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    return res.status(200).send({
+    res.status(200).send({
         message: "Hello World!",
     });
 }));
-app.post("/cocoEnquete", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app.post("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log('サーバpost');
     //データの受信処理
     client.record.addRecord({
         app: 183,
